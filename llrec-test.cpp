@@ -69,8 +69,6 @@ void dealloc(Node* head)
 
 
 
-
-
 int main(int argc, char* argv[])
 {
     if(argc < 2) {
@@ -87,8 +85,17 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
 
+    Node* smaller;
+    Node* larger;
 
-
+    llpivot(head, smaller, larger, 6);
+    //checking if this was implemented properly
+    cout << "Head: ";
+    print(head);
+    cout << endl << "Smaller: ";
+    print(smaller);
+    cout << endl << "Larger: "; 
+    print(larger);
     
     return 0;
 

@@ -169,6 +169,7 @@ template <typename T, typename PComparator>
 void Heap<T,PComparator>::heapify(int i){
   
   // check this
+  /*
   int children[m]; //m-ary so m-children for each node
   size_t size = (m*i) + 1;
   if (size >= curheap.size()){
@@ -186,14 +187,28 @@ void Heap<T,PComparator>::heapify(int i){
     if (c(curheap[smallerChild], curheap[smallerChild + j])){
       smallerChild = smallerChild + j;
     }
-    */
+    
     if (c(curheap[smallerChild + j], curheap[smallerChild])){
       smallerChild = smallerChild + j;
     } 
   }
-  if(c(curheap[smallerChild], curheap[i])){ 
-    std::swap(curheap[i], curheap[smallerChild]); 
-    heapify(smallerChild);
+  */
+  size_t leftChild = m*i + 1;
+  size_t priorityChild = i;
+
+  if (leftChild < curheap.size()) {
+    priorityChild = leftChild;
+  } 
+  for (size_t j = 1; j < m; j++){
+    size_t currentChild = leftChild + j;
+    if (currentChild < curheap.size() && c(curheap[currentChild], curheap[priorityChild])) {
+      priorityChild = currentChild;
+    }
+  }
+
+  if(c(curheap[priorityChild], curheap[i])){ 
+    std::swap(curheap[i], curheap[priorityChild]); 
+    heapify(priorityChild);
   }
 }
 

@@ -47,7 +47,6 @@ struct Node
  */
 void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot);
 
-void split(Node *&head, Node *&smaller, Node *&larger, int pivot, Node *&smallPoint, Node *&largePoint);
 
 /**
  * Given a linked list pointed to by head, removes (filters out) nodes
